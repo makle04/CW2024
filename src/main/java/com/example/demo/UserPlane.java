@@ -14,9 +14,9 @@ public class UserPlane extends FighterPlane {
 	private int horizontalVelocityMultiplier;
 	private int numberOfKills;
 	private static final double ACCELERATION = 1.2;
-	private static final double HORIZONTAL_VELOCITY = 16.0;
+	private static final double HORIZONTAL_VELOCITY = 14.0;
 	private static final double VERTICAL_ACCELERATION = 1.5;
-	private static final double VERTICAL_VELOCITY = 16.0;
+	private static final double VERTICAL_VELOCITY = 14.0;
 	private double verticalVelocity = 0.0;
 	private double horizontalVelocity = 0.0;
 

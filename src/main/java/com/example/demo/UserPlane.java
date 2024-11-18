@@ -65,7 +65,9 @@ public class UserPlane extends FighterPlane {
 
 	@Override
 	public ActiveActorDestructible fireProjectile() {
-		return new UserProjectile(PROJECTILE_X_POSITION, getProjectileYPosition(PROJECTILE_Y_POSITION_OFFSET));
+		double projectileX = this.getLayoutX() + this.getTranslateX() + PROJECTILE_X_POSITION;
+		double projectileY = this.getLayoutY() + this.getTranslateY() + PROJECTILE_Y_POSITION_OFFSET;
+		return new UserProjectile(projectileX, projectileY);
 	}
 
 	private boolean isMovingVertically() {

@@ -78,7 +78,7 @@ public abstract class LevelParent extends Observable {
 		notifyObservers(levelName);
 	}
 
-	private void updateScene() {
+	protected void updateScene() {
 		spawnEnemyUnits();
 		updateActors();
 		generateEnemyFire();

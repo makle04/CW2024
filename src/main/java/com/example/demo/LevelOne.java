@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+
 public class LevelOne extends LevelParent {
 	
 	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background1.jpg";
@@ -8,6 +11,7 @@ public class LevelOne extends LevelParent {
 	private static final int KILLS_TO_ADVANCE = 10;
 	private static final double ENEMY_SPAWN_PROBABILITY = .20;
 	private static final int PLAYER_INITIAL_HEALTH = 5;
+	private Text killCountText;
 
 	public LevelOne(double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
@@ -28,6 +32,12 @@ public class LevelOne extends LevelParent {
 	@Override
 	protected void initializeFriendlyUnits() {
 		getRoot().getChildren().add(getUser());
+		killCountText = new Text("KILLCOUNT: " + user.getNumberOfKills());
+		killCountText.setFill(Color.WHITE);
+		killCountText.setStyle("-fx-font-size: 24;");
+		killCountText.setX(getScreenWidth() - 200);
+		killCountText.setY(30);
+		getRoot().getChildren().add(killCountText);
 	}
 
 	@Override
@@ -49,6 +59,12 @@ public class LevelOne extends LevelParent {
 
 	private boolean userHasReachedKillTarget() {
 		return getUser().getNumberOfKills() >= KILLS_TO_ADVANCE;
+	}
+
+	@Override
+	protected void updateKillCount() {
+		super.updateKillCount();
+		killCountText.setText("KILLCOUNT: " + user.getNumberOfKills()); // Update the display
 	}
 
 }

@@ -21,7 +21,7 @@ public abstract class LevelParent extends Observable {
 
 	private final Group root;
 	protected final Timeline timeline;
-	private final UserPlane user;
+	protected final UserPlane user;
 	private final Scene scene;
 	private final ImageView background;
 
@@ -203,7 +203,7 @@ public abstract class LevelParent extends Observable {
 		levelView.removeHearts(user.getHealth());
 	}
 
-	private void updateKillCount() {
+	protected void updateKillCount() {
 		for (int i = 0; i < currentNumberOfEnemies - enemyUnits.size(); i++) {
 			user.incrementKillCount();
 		}

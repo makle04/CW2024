@@ -12,6 +12,7 @@ public class LevelTwo extends LevelParent {
 	private ShieldImage shieldImage;
 	private Text bosshealthText;
 	private Text shieldText;
+	private Text level2Text;
 
 	public LevelTwo(double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
@@ -34,6 +35,12 @@ public class LevelTwo extends LevelParent {
 		shieldText.setX(getScreenWidth() - 250);
 		shieldText.setY(60);
 		getRoot().getChildren().add(shieldText);
+		level2Text = new Text("LEVEL 2");
+		level2Text.setFill(Color.WHITE);
+		level2Text.setStyle("-fx-font-size: 24;");
+		level2Text.setX((getScreenWidth() /2) -20 );
+		level2Text.setY(30);
+		getRoot().getChildren().add(level2Text);
 	}
 
 	@Override

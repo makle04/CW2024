@@ -125,4 +125,5 @@ public class Boss extends FighterPlane {
 		return isShielded;
 	}
 
+
 }

@@ -12,13 +12,13 @@ public class EnemyPlane extends FighterPlane {
 	private static final int INITIAL_HEALTH = 1;
 	private static final double FIRE_RATE = .01;
 	private final Rectangle hitbox;
-	private static final double HITBOX_X_OFFSET = -10.0;
+	private static final double HITBOX_X_OFFSET = -30.0;
 	private static final double HITBOX_Y_OFFSET = 25.0;
 
 
 	public EnemyPlane(double initialXPos, double initialYPos) {
 		super(IMAGE_NAME, IMAGE_HEIGHT, initialXPos, initialYPos, INITIAL_HEALTH);
-		hitbox = new Rectangle(initialXPos, initialYPos, 100, 20);
+		hitbox = new Rectangle(initialXPos, initialYPos, 150, 30);
 	}
 
 	@Override

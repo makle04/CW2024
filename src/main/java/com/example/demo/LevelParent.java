@@ -220,7 +220,7 @@ public abstract class LevelParent extends Observable {
 
 	protected void loseGame() {
 		timeline.stop();
-		levelView.showGameOverImage();
+		levelView.showGameOverImage(0.5,0.5);
 	}
 
 	protected UserPlane getUser() {

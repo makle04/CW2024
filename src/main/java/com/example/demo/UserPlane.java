@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import javafx.scene.shape.Rectangle;
+
 public class UserPlane extends FighterPlane {
 
 	private static final String IMAGE_NAME = "userplane.png";
@@ -19,11 +21,15 @@ public class UserPlane extends FighterPlane {
 	private static final double VERTICAL_VELOCITY = 14.0;
 	private double verticalVelocity = 0.0;
 	private double horizontalVelocity = 0.0;
+	private final Rectangle hitbox;
+	private static final double HITBOX_X_OFFSET = 10.0;
+	private static final double HITBOX_Y_OFFSET = 65.0;
 
 	public UserPlane(int initialHealth) {
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, initialHealth);
 		velocityMultiplier = 0;
 		horizontalVelocityMultiplier=0;
+		hitbox = new Rectangle(INITIAL_X_POSITION, INITIAL_Y_POSITION, 150, 20);
 	}
 
 	@Override
@@ -55,6 +61,7 @@ public class UserPlane extends FighterPlane {
 		if (newXPosition >= 0 && newXPosition <= getMaxXPosition()) {
 			moveHorizontally(horizontalVelocity);
 		}
+		updateHitbox();
 	}
 
 
@@ -111,6 +118,15 @@ public class UserPlane extends FighterPlane {
 		return this.getScene().getWidth() - this.getBoundsInLocal().getWidth();
 	}
 
+	private void updateHitbox() {
+		hitbox.setX(getLayoutX() + getTranslateX()+HITBOX_X_OFFSET);
+		hitbox.setY(getLayoutY() + getTranslateY()+ HITBOX_Y_OFFSET);
+	}
+
+	@Override
+	public Rectangle getHitbox() {
+		return hitbox; // Assuming `hitbox` is defined and updated in Boss
+	}
 
 
 }

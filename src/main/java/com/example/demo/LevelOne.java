@@ -34,16 +34,16 @@ public class LevelOne extends LevelParent {
 	protected void initializeFriendlyUnits() {
 		getRoot().getChildren().add(getUser());
 		killCountText = new Text("KILLCOUNT: " + user.getNumberOfKills());
-		killCountText.setFill(Color.WHITE);
+		killCountText.setFill(Color.BLACK);
 		killCountText.setStyle("-fx-font-size: 24;");
 		killCountText.setX(getScreenWidth() - 200);
-		killCountText.setY(30);
+		killCountText.setY(50);
 		getRoot().getChildren().add(killCountText);
 		level1Text = new Text("LEVEL 1");
-		level1Text.setFill(Color.WHITE);
+		level1Text.setFill(Color.BLACK);
 		level1Text.setStyle("-fx-font-size: 24;");
 		level1Text.setX((getScreenWidth() /2) -20 );
-		level1Text.setY(30);
+		level1Text.setY(50);
 		getRoot().getChildren().add(level1Text);
 	}
 

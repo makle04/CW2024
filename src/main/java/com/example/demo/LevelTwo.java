@@ -24,22 +24,22 @@ public class LevelTwo extends LevelParent {
 	protected void initializeFriendlyUnits() {
 		getRoot().getChildren().add(getUser());
 		bosshealthText = new Text("BOSS HEALTH: " + boss.getHealth());
-		bosshealthText.setFill(Color.WHITE);
+		bosshealthText.setFill(Color.BLACK);
 		bosshealthText.setStyle("-fx-font-size: 24;");
 		bosshealthText.setX(getScreenWidth() - 250);
-		bosshealthText.setY(30);
+		bosshealthText.setY(50);
 		getRoot().getChildren().add(bosshealthText);
 		shieldText = new Text();
-		shieldText.setFill(Color.WHITE);
+		shieldText.setFill(Color.BLACK);
 		shieldText.setStyle("-fx-font-size: 24;");
 		shieldText.setX(getScreenWidth() - 250);
-		shieldText.setY(60);
+		shieldText.setY(80);
 		getRoot().getChildren().add(shieldText);
 		level2Text = new Text("LEVEL 2");
-		level2Text.setFill(Color.WHITE);
+		level2Text.setFill(Color.BLACK);
 		level2Text.setStyle("-fx-font-size: 24;");
 		level2Text.setX((getScreenWidth() /2) -20 );
-		level2Text.setY(30);
+		level2Text.setY(50);
 		getRoot().getChildren().add(level2Text);
 	}
 

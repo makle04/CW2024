@@ -12,6 +12,7 @@ public class LevelOne extends LevelParent {
 	private static final double ENEMY_SPAWN_PROBABILITY = .20;
 	private static final int PLAYER_INITIAL_HEALTH = 5;
 	private Text killCountText;
+	private Text level1Text;
 
 	public LevelOne(double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
@@ -38,6 +39,12 @@ public class LevelOne extends LevelParent {
 		killCountText.setX(getScreenWidth() - 200);
 		killCountText.setY(30);
 		getRoot().getChildren().add(killCountText);
+		level1Text = new Text("LEVEL 1");
+		level1Text.setFill(Color.WHITE);
+		level1Text.setStyle("-fx-font-size: 24;");
+		level1Text.setX((getScreenWidth() /2) -20 );
+		level1Text.setY(30);
+		getRoot().getChildren().add(level1Text);
 	}
 
 	@Override

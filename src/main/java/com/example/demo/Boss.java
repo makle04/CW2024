@@ -36,7 +36,7 @@ public class Boss extends FighterPlane {
 		framesWithShieldActivated = 0;
 		isShielded = false;
 		initializeMovePattern();
-		hitbox = new Rectangle(INITIAL_X_POSITION, INITIAL_Y_POSITION, 200, 60);
+		hitbox = new Rectangle(INITIAL_X_POSITION, INITIAL_Y_POSITION, 200, 80);
 	}
 
 	@Override

@@ -1,8 +1,12 @@
-package com.example.demo;
+package com.example.demo.Levels;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+import com.example.demo.Actors.ActiveActorDestructible;
+import com.example.demo.Actors.FighterPlane;
+import com.example.demo.Actors.UserPlane;
+import com.example.demo.Views.LevelView;
 import javafx.animation.*;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -214,6 +218,7 @@ public abstract class LevelParent extends Observable {
 
 	protected void winGame() {
 		timeline.stop();
+		levelView.setBackground("/com/example/demo/images/winBG.jpg");
 		levelView.showWinImage();
 	}
 

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.Views;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,8 +14,8 @@ public class WinImage extends ImageView {
 		this.setVisible(false);
 		this.setFitHeight(HEIGHT);
 		this.setFitWidth(WIDTH);
-		this.setLayoutX(xPosition);
-		this.setLayoutY(yPosition);
+		this.setLayoutX(xPosition-20);
+		this.setLayoutY(yPosition-50);
 	}
 	
 	public void showWinImage() {

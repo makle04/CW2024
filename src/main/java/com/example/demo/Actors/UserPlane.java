@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.Actors;
 
 import javafx.scene.shape.Rectangle;
 
@@ -23,7 +23,7 @@ public class UserPlane extends FighterPlane {
 	private double horizontalVelocity = 0.0;
 	private final Rectangle hitbox;
 	private static final double HITBOX_X_OFFSET = 10.0;
-	private static final double HITBOX_Y_OFFSET = 65.0;
+	private static final double HITBOX_Y_OFFSET = 55.0;
 
 	public UserPlane(int initialHealth) {
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, initialHealth);

@@ -1,5 +1,8 @@
-package com.example.demo;
+package com.example.demo.Levels;
 
+import com.example.demo.Actors.ActiveActorDestructible;
+import com.example.demo.Actors.EnemyPlane;
+import com.example.demo.Views.LevelView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -7,7 +10,7 @@ import javafx.scene.text.Text;
 public class LevelTwo extends LevelParent {
 
     private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background2.jpg";
-    private static final String NEXT_LEVEL = "com.example.demo.LevelThree";
+    private static final String NEXT_LEVEL = "com.example.demo.Levels.LevelThree";
     private static final int TOTAL_ENEMIES = 7;
     private static final int KILLS_TO_ADVANCE = 15;
     private static final double ENEMY_SPAWN_PROBABILITY = .20;

@@ -1,5 +1,9 @@
-package com.example.demo;
+package com.example.demo.Levels;
 
+import com.example.demo.Actors.BossPlane;
+import com.example.demo.Views.LevelThreeView;
+import com.example.demo.Views.LevelView;
+import com.example.demo.Views.ShieldImage;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;

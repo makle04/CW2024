@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.Views;
 
 import javafx.scene.Group;
 import javafx.scene.image.Image;

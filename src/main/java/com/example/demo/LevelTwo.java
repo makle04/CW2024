@@ -14,6 +14,7 @@ public class LevelTwo extends LevelParent {
     private static final int PLAYER_INITIAL_HEALTH = 5;
     private Text killCountText;
     private Text level1Text;
+    private Text killConText;
     private static final Font digitalfont= Font.loadFont(LevelTwo.class.getResourceAsStream("/com/example/demo/images/digitalfont.ttf"), 27);
 
     public LevelTwo(double screenHeight, double screenWidth) {
@@ -38,8 +39,14 @@ public class LevelTwo extends LevelParent {
         killCountText = new Text("KILLCOUNT: " + user.getNumberOfKills());
         killCountText.setFill(Color.BLACK);
         killCountText.setFont(digitalfont);
-        killCountText.setX(getScreenWidth() - 200);
+        killCountText.setX(getScreenWidth() - 250);
         killCountText.setY(40);
+        killConText = new Text("KILL TO PROCEED: 15");
+        killConText.setFill(Color.LIGHTGREEN);
+        killConText.setFont(digitalfont);
+        killConText.setX(getScreenWidth() - 250);
+        killConText.setY(70);
+        getRoot().getChildren().add(killConText);
         getRoot().getChildren().add(killCountText);
         level1Text = new Text("LEVEL 2");
         level1Text.setFill(Color.BLACK);

@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class LevelTwo extends LevelParent {
@@ -13,6 +14,8 @@ public class LevelTwo extends LevelParent {
 	private Text bosshealthText;
 	private Text shieldText;
 	private Text level2Text;
+	private static final Font digitalfont= Font.loadFont(LevelTwo.class.getResourceAsStream("/com/example/demo/images/digitalfont.ttf"), 27);
+
 
 	public LevelTwo(double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
@@ -25,21 +28,21 @@ public class LevelTwo extends LevelParent {
 		getRoot().getChildren().add(getUser());
 		bosshealthText = new Text("BOSS HEALTH: " + boss.getHealth());
 		bosshealthText.setFill(Color.BLACK);
-		bosshealthText.setStyle("-fx-font-size: 24;");
+		bosshealthText.setFont(digitalfont);
 		bosshealthText.setX(getScreenWidth() - 250);
-		bosshealthText.setY(50);
+		bosshealthText.setY(40);
 		getRoot().getChildren().add(bosshealthText);
 		shieldText = new Text();
 		shieldText.setFill(Color.BLACK);
-		shieldText.setStyle("-fx-font-size: 24;");
+		shieldText.setFont(digitalfont);
 		shieldText.setX(getScreenWidth() - 250);
-		shieldText.setY(80);
+		shieldText.setY(70);
 		getRoot().getChildren().add(shieldText);
 		level2Text = new Text("LEVEL 2");
 		level2Text.setFill(Color.BLACK);
-		level2Text.setStyle("-fx-font-size: 24;");
-		level2Text.setX((getScreenWidth() /2) -20 );
-		level2Text.setY(50);
+		level2Text.setFont(digitalfont);
+		level2Text.setX((getScreenWidth() /2) -60 );
+		level2Text.setY(40);
 		getRoot().getChildren().add(level2Text);
 	}
 
@@ -82,11 +85,13 @@ public class LevelTwo extends LevelParent {
 		bosshealthText.setText("BOSS HEALTH: " + boss.getHealth());
 		if (boss.isShielded()) {
 			shieldText.setText("SHIELD: Activated");
+			shieldText.setFill(Color.LIGHTGREEN);
 			updateShieldPosition();
 		} else {
 			shieldText.setText("SHIELD: Deactivated");
+			shieldText.setFill(Color.RED);
+			updateShieldPosition();
 		}
-		updateShieldPosition();
 		if (boss.getFramesWithShieldActivated()==0) {
 			getRoot().getChildren().remove(shieldImage);
 			shieldImage.hideShield();

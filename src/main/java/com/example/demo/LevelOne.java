@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class LevelOne extends LevelParent {
@@ -13,6 +14,7 @@ public class LevelOne extends LevelParent {
 	private static final int PLAYER_INITIAL_HEALTH = 5;
 	private Text killCountText;
 	private Text level1Text;
+	private static final Font digitalfont= Font.loadFont(LevelOne.class.getResourceAsStream("/com/example/demo/images/digitalfont.ttf"), 27);
 
 	public LevelOne(double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
@@ -35,15 +37,15 @@ public class LevelOne extends LevelParent {
 		getRoot().getChildren().add(getUser());
 		killCountText = new Text("KILLCOUNT: " + user.getNumberOfKills());
 		killCountText.setFill(Color.BLACK);
-		killCountText.setStyle("-fx-font-size: 24;");
+		killCountText.setFont(digitalfont);
 		killCountText.setX(getScreenWidth() - 200);
-		killCountText.setY(50);
+		killCountText.setY(40);
 		getRoot().getChildren().add(killCountText);
 		level1Text = new Text("LEVEL 1");
 		level1Text.setFill(Color.BLACK);
-		level1Text.setStyle("-fx-font-size: 24;");
-		level1Text.setX((getScreenWidth() /2) -20 );
-		level1Text.setY(50);
+		level1Text.setFont(digitalfont);
+		level1Text.setX((getScreenWidth() /2) -60 );
+		level1Text.setY(40);
 		getRoot().getChildren().add(level1Text);
 	}
 

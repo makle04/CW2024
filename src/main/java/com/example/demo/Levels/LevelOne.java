@@ -18,7 +18,7 @@ public class LevelOne extends LevelParent {
 	private Text killCountText;
 	private Text level1Text;
 	private Text killConText;
-	private static final Font digitalfont= Font.loadFont(LevelOne.class.getResourceAsStream("/com/example/demo/images/digitalfont.ttf"), 27);
+	private static final Font digitalfont= Font.loadFont(LevelOne.class.getResourceAsStream("/fonts/digitalfont.ttf"), 27);
 
 	public LevelOne(double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);

@@ -13,6 +13,9 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.*;
 import javafx.scene.input.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public abstract class LevelParent extends Observable {
@@ -36,6 +39,9 @@ public abstract class LevelParent extends Observable {
 
 	private int currentNumberOfEnemies;
 	private LevelView levelView;
+	private boolean isPaused = false;
+	private Text pauseText;
+	private static final Font digitalfont= Font.loadFont(LevelTwo.class.getResourceAsStream("/fonts/digitalfont.ttf"), 45);
 
 	public LevelParent(String backgroundImageName, double screenHeight, double screenWidth, int playerInitialHealth) {
 		this.root = new Group();
@@ -54,6 +60,7 @@ public abstract class LevelParent extends Observable {
 		this.levelView = instantiateLevelView();
 		this.currentNumberOfEnemies = 0;
 		initializeTimeline();
+		initializePauseText();
 		friendlyUnits.add(user);
 	}
 
@@ -110,26 +117,65 @@ public abstract class LevelParent extends Observable {
 		background.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent e) {
 				KeyCode kc = e.getCode();
-				if (kc == KeyCode.UP || kc == KeyCode.W) user.moveUp();
-				if (kc == KeyCode.DOWN || kc == KeyCode.S) user.moveDown();
-				if (kc == KeyCode.LEFT || kc == KeyCode.A) user.moveLeft();
-				if (kc == KeyCode.RIGHT || kc == KeyCode.D) user.moveRight();
-				if (kc == KeyCode.SPACE) fireProjectile();
+				if (kc == KeyCode.P) togglePause();
+				if (!isPaused) {
+					if (kc == KeyCode.UP || kc == KeyCode.W) user.moveUp();
+					if (kc == KeyCode.DOWN || kc == KeyCode.S) user.moveDown();
+					if (kc == KeyCode.LEFT || kc == KeyCode.A) user.moveLeft();
+					if (kc == KeyCode.RIGHT || kc == KeyCode.D) user.moveRight();
+					if (kc == KeyCode.SPACE) fireProjectile();
+				}
 			}
 		});
 		background.setOnKeyReleased(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent e) {
 				KeyCode kc = e.getCode();
-				if (kc == KeyCode.UP || kc == KeyCode.DOWN || kc == KeyCode.RIGHT || kc == KeyCode.LEFT || kc == KeyCode.W || kc == KeyCode.A || kc == KeyCode.S || kc == KeyCode.D) user.stop();
+				if(!isPaused) {
+					if (kc == KeyCode.UP || kc == KeyCode.DOWN || kc == KeyCode.RIGHT || kc == KeyCode.LEFT || kc == KeyCode.W || kc == KeyCode.A || kc == KeyCode.S || kc == KeyCode.D)
+						user.stop();
+				}
 			}
 		});
 		background.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				fireProjectile();
+				if (!isPaused) fireProjectile();
 			}
 		});
 		root.getChildren().add(background);
+	}
+
+	private void initializePauseText(){
+		pauseText=new Text("Press P to resume...");
+		pauseText.setFont(digitalfont);
+		pauseText.setFill(Color.BLACK);
+		pauseText.setVisible(false);
+		pauseText.setX(450);
+		pauseText.setY(350);
+	}
+
+	private void togglePause(){
+		if (isPaused){
+			resumeGame();
+		}
+		else{
+			pauseGame();
+		}
+	}
+
+	private void pauseGame(){
+		isPaused=true;
+		timeline.pause();
+		pauseText.setVisible(true);
+		getRoot().getChildren().add(pauseText);
+	}
+
+	private void resumeGame(){
+		isPaused=false;
+		timeline.play();
+		pauseText.setVisible(false);
+		getRoot().getChildren().remove(pauseText);
+		updateScene();
 	}
 
 	private void fireProjectile() {

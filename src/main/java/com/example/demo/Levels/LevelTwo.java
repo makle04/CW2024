@@ -44,13 +44,13 @@ public class LevelTwo extends LevelParent {
         killCountText.setFont(digitalfont);
         killCountText.setX(getScreenWidth() - 250);
         killCountText.setY(40);
+        getRoot().getChildren().add(killCountText);
         killConText = new Text("KILL TO PROCEED: 15");
         killConText.setFill(Color.LIGHTGREEN);
         killConText.setFont(digitalfont);
         killConText.setX(getScreenWidth() - 250);
         killConText.setY(70);
         getRoot().getChildren().add(killConText);
-        getRoot().getChildren().add(killCountText);
         level1Text = new Text("LEVEL 2");
         level1Text.setFill(Color.BLACK);
         level1Text.setFont(digitalfont);

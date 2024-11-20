@@ -219,6 +219,7 @@ public abstract class LevelParent extends Observable {
 
 	protected void loseGame() {
 		timeline.stop();
+		levelView.setBackground("/com/example/demo/images/gameoverBG.jpg");
 		levelView.showGameOverImage(0.5,0.5);
 	}
 

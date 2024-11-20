@@ -125,7 +125,7 @@ public class UserPlane extends FighterPlane {
 
 	@Override
 	public Rectangle getHitbox() {
-		return hitbox; // Assuming `hitbox` is defined and updated in Boss
+		return hitbox;
 	}
 
 

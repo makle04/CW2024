@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import javafx.scene.Group;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class LevelView {
 	
@@ -43,6 +45,14 @@ public class LevelView {
 		for (int i = 0; i < currentNumberOfHearts - heartsRemaining; i++) {
 			heartDisplay.removeHeart();
 		}
+	}
+
+	public void setBackground(String backgroundImagePath) {
+		ImageView background = new ImageView(new Image(getClass().getResource(backgroundImagePath).toExternalForm()));
+		background.setFitWidth(root.getScene().getWidth());
+		background.setFitHeight(root.getScene().getHeight());
+		background.toBack();
+		root.getChildren().add(background);
 	}
 
 }

@@ -17,8 +17,8 @@ public class LevelThree extends LevelParent {
 	private ShieldImage shieldImage;
 	private Text bosshealthText;
 	private Text shieldText;
-	private Text level2Text;
-	private static final Font digitalfont= Font.loadFont(LevelThree.class.getResourceAsStream("/fonts/digitalfont.ttf"), 27);
+	private Text level3Text;
+	private static final Font digitalfont= Font.loadFont(LevelThree.class.getResourceAsStream("/fonts/digitalfont.ttf"), -1);
 
 
 	public LevelThree(double screenHeight, double screenWidth) {
@@ -33,21 +33,26 @@ public class LevelThree extends LevelParent {
 		bosshealthText = new Text("BOSS HEALTH: " + boss.getHealth());
 		bosshealthText.setFill(Color.BLACK);
 		bosshealthText.setFont(digitalfont);
+		bosshealthText.setFont(Font.font(digitalfont.getName(), 27));
 		bosshealthText.setX(getScreenWidth() - 250);
 		bosshealthText.setY(40);
 		getRoot().getChildren().add(bosshealthText);
+
 		shieldText = new Text();
 		shieldText.setFill(Color.BLACK);
 		shieldText.setFont(digitalfont);
+		shieldText.setFont(Font.font(digitalfont.getName(), 27));
 		shieldText.setX(getScreenWidth() - 250);
-		shieldText.setY(70);
+		shieldText.setY(75);
 		getRoot().getChildren().add(shieldText);
-		level2Text = new Text("LEVEL 3");
-		level2Text.setFill(Color.BLACK);
-		level2Text.setFont(digitalfont);
-		level2Text.setX((getScreenWidth() /2) -60 );
-		level2Text.setY(40);
-		getRoot().getChildren().add(level2Text);
+
+		level3Text = new Text("LEVEL 3");
+		level3Text.setFill(Color.BLACK);
+		level3Text.setFont(digitalfont);
+		level3Text.setFont(Font.font(digitalfont.getName(), 35));
+		level3Text.setX((getScreenWidth() /2) -65 );
+		level3Text.setY(50);
+		getRoot().getChildren().add(level3Text);
 	}
 
 	@Override

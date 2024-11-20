@@ -18,7 +18,7 @@ public class LevelOne extends LevelParent {
 	private Text killCountText;
 	private Text level1Text;
 	private Text killConText;
-	private static final Font digitalfont= Font.loadFont(LevelOne.class.getResourceAsStream("/fonts/digitalfont.ttf"), 27);
+	private static final Font digitalfont= Font.loadFont(LevelOne.class.getResourceAsStream("/fonts/digitalfont.ttf"),-1);
 
 	public LevelOne(double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
@@ -42,20 +42,25 @@ public class LevelOne extends LevelParent {
 		killCountText = new Text("KILLCOUNT: " + user.getNumberOfKills());
 		killCountText.setFill(Color.BLACK);
 		killCountText.setFont(digitalfont);
+		killCountText.setFont(Font.font(digitalfont.getName(), 27));
 		killCountText.setX(getScreenWidth() - 250);
 		killCountText.setY(40);
 		getRoot().getChildren().add(killCountText);
+
 		killConText = new Text("KILL TO PROCEED: 10");
 		killConText.setFill(Color.LIGHTGREEN);
 		killConText.setFont(digitalfont);
+		killConText.setFont(Font.font(digitalfont.getName(), 27));
 		killConText.setX(getScreenWidth() - 250);
-		killConText.setY(70);
+		killConText.setY(75);
 		getRoot().getChildren().add(killConText);
+
 		level1Text = new Text("LEVEL 1");
 		level1Text.setFill(Color.BLACK);
 		level1Text.setFont(digitalfont);
-		level1Text.setX((getScreenWidth() /2) -60 );
-		level1Text.setY(40);
+		level1Text.setFont(Font.font(digitalfont.getName(), 35));
+		level1Text.setX((getScreenWidth() /2) -65 );
+		level1Text.setY(50);
 		getRoot().getChildren().add(level1Text);
 	}
 

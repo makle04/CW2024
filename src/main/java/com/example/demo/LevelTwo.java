@@ -6,101 +6,74 @@ import javafx.scene.text.Text;
 
 public class LevelTwo extends LevelParent {
 
-	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background2.jpg";
-	private static final int PLAYER_INITIAL_HEALTH = 5;
-	private final BossPlane boss;
-	private LevelTwoView levelView;
-	private ShieldImage shieldImage;
-	private Text bosshealthText;
-	private Text shieldText;
-	private Text level2Text;
-	private static final Font digitalfont= Font.loadFont(LevelTwo.class.getResourceAsStream("/com/example/demo/images/digitalfont.ttf"), 27);
+    private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background2.jpg";
+    private static final String NEXT_LEVEL = "com.example.demo.LevelThree";
+    private static final int TOTAL_ENEMIES = 7;
+    private static final int KILLS_TO_ADVANCE = 15;
+    private static final double ENEMY_SPAWN_PROBABILITY = .20;
+    private static final int PLAYER_INITIAL_HEALTH = 5;
+    private Text killCountText;
+    private Text level1Text;
+    private static final Font digitalfont= Font.loadFont(LevelTwo.class.getResourceAsStream("/com/example/demo/images/digitalfont.ttf"), 27);
 
+    public LevelTwo(double screenHeight, double screenWidth) {
+        super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
+    }
 
-	public LevelTwo(double screenHeight, double screenWidth) {
-		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
-		boss = new BossPlane();
-		shieldImage = new ShieldImage(boss.getLayoutX(), boss.getLayoutY());
-	}
+    @Override
+    protected void checkIfGameOver() {
+        if (userIsDestroyed()) {
+            loseGame();
+            timeline.stop();
+        }
+        else if (userHasReachedKillTarget()) {
+            timeline.stop();
+            goToNextLevel(NEXT_LEVEL);
+        }
+    }
 
-	@Override
-	protected void initializeFriendlyUnits() {
-		getRoot().getChildren().add(getUser());
-		bosshealthText = new Text("BOSS HEALTH: " + boss.getHealth());
-		bosshealthText.setFill(Color.BLACK);
-		bosshealthText.setFont(digitalfont);
-		bosshealthText.setX(getScreenWidth() - 250);
-		bosshealthText.setY(40);
-		getRoot().getChildren().add(bosshealthText);
-		shieldText = new Text();
-		shieldText.setFill(Color.BLACK);
-		shieldText.setFont(digitalfont);
-		shieldText.setX(getScreenWidth() - 250);
-		shieldText.setY(70);
-		getRoot().getChildren().add(shieldText);
-		level2Text = new Text("LEVEL 2");
-		level2Text.setFill(Color.BLACK);
-		level2Text.setFont(digitalfont);
-		level2Text.setX((getScreenWidth() /2) -60 );
-		level2Text.setY(40);
-		getRoot().getChildren().add(level2Text);
-	}
+    @Override
+    protected void initializeFriendlyUnits() {
+        getRoot().getChildren().add(getUser());
+        killCountText = new Text("KILLCOUNT: " + user.getNumberOfKills());
+        killCountText.setFill(Color.BLACK);
+        killCountText.setFont(digitalfont);
+        killCountText.setX(getScreenWidth() - 200);
+        killCountText.setY(40);
+        getRoot().getChildren().add(killCountText);
+        level1Text = new Text("LEVEL 2");
+        level1Text.setFill(Color.BLACK);
+        level1Text.setFont(digitalfont);
+        level1Text.setX((getScreenWidth() /2) -60 );
+        level1Text.setY(40);
+        getRoot().getChildren().add(level1Text);
+    }
 
-	@Override
-	protected void checkIfGameOver() {
-		if (userIsDestroyed()) {
-			loseGame();
-		} else if (boss.isDestroyed()) {
-			winGame();
-		}
-	}
+    @Override
+    protected void spawnEnemyUnits() {
+        int currentNumberOfEnemies = getCurrentNumberOfEnemies();
+        for (int i = 0; i < TOTAL_ENEMIES - currentNumberOfEnemies; i++) {
+            if (Math.random() < ENEMY_SPAWN_PROBABILITY) {
+                double newEnemyInitialYPosition = Math.random() * getEnemyMaximumYPosition();
+                ActiveActorDestructible newEnemy = new EnemyPlane(getScreenWidth(), newEnemyInitialYPosition);
+                addEnemyUnit(newEnemy);
+            }
+        }
+    }
 
-	@Override
-	protected void spawnEnemyUnits() {
-		if (getCurrentNumberOfEnemies() == 0) {
-			addEnemyUnit(boss);
+    @Override
+    protected LevelView instantiateLevelView() {
+        return new LevelView(getRoot(), PLAYER_INITIAL_HEALTH);
+    }
 
-		}
-	}
+    private boolean userHasReachedKillTarget() {
+        return getUser().getNumberOfKills() >= KILLS_TO_ADVANCE;
+    }
 
+    @Override
+    protected void updateKillCount() {
+        super.updateKillCount();
+        killCountText.setText("KILLCOUNT: " + user.getNumberOfKills());
+    }
 
-	@Override
-	protected LevelView instantiateLevelView() {
-		levelView = new LevelTwoView(getRoot(), PLAYER_INITIAL_HEALTH);
-		return levelView;
-	}
-
-	private void updateShieldPosition() {
-		if (!boss.shieldExhausted()) {
-			double offsetX = -65;
-			double offsetY = 50;
-			shieldImage.setTranslateX(boss.getTranslateX() + offsetX);
-			shieldImage.setTranslateY(boss.getTranslateY() + offsetY);
-		}
-	}
-
-	@Override
-	protected void updateScene() {
-		super.updateScene();
-		bosshealthText.setText("BOSS HEALTH: " + boss.getHealth());
-		if (boss.isShielded()) {
-			shieldText.setText("SHIELD: Activated");
-			shieldText.setFill(Color.LIGHTGREEN);
-			updateShieldPosition();
-		} else {
-			shieldText.setText("SHIELD: Deactivated");
-			shieldText.setFill(Color.RED);
-			updateShieldPosition();
-		}
-		if (boss.getFramesWithShieldActivated()==0) {
-			getRoot().getChildren().remove(shieldImage);
-			shieldImage.hideShield();
-			boss.deactivateShield();
-		}
-		if (!boss.isShielded() && boss.shieldShouldBeActivated() && boss.getFramesWithShieldActivated()==0) {
-			boss.activateShield();
-			getRoot().getChildren().add(shieldImage);
-			shieldImage.showShield();
-		}
-	}
 }

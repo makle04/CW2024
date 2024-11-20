@@ -73,7 +73,7 @@ public class LevelOne extends LevelParent {
 	@Override
 	protected void updateKillCount() {
 		super.updateKillCount();
-		killCountText.setText("KILLCOUNT: " + user.getNumberOfKills()); // Update the display
+		killCountText.setText("KILLCOUNT: " + user.getNumberOfKills());
 	}
 
 }

@@ -8,7 +8,7 @@ public class LevelTwo extends LevelParent {
 
 	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background2.jpg";
 	private static final int PLAYER_INITIAL_HEALTH = 5;
-	private final Boss boss;
+	private final BossPlane boss;
 	private LevelTwoView levelView;
 	private ShieldImage shieldImage;
 	private Text bosshealthText;
@@ -19,7 +19,7 @@ public class LevelTwo extends LevelParent {
 
 	public LevelTwo(double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
-		boss = new Boss();
+		boss = new BossPlane();
 		shieldImage = new ShieldImage(boss.getLayoutX(), boss.getLayoutY());
 	}
 

@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import com.example.demo.Actors.ActiveActorDestructible;
+import com.example.demo.Actors.BossProjectile;
 import com.example.demo.Actors.FighterPlane;
 import com.example.demo.Actors.UserPlane;
 import com.example.demo.Views.LevelView;
@@ -93,6 +94,7 @@ public abstract class LevelParent extends Observable {
 		spawnEnemyUnits();
 		updateActors();
 		generateEnemyFire();
+		handleOutOfBoundsProjectiles();
 		updateNumberOfEnemies();
 		handleEnemyPenetration();
 		handleUserProjectileCollisions();
@@ -307,6 +309,25 @@ public abstract class LevelParent extends Observable {
 
 	private void updateNumberOfEnemies() {
 		currentNumberOfEnemies = enemyUnits.size();
+	}
+
+	private void handleOutOfBoundsProjectiles() {
+		removeOutOfBoundsActors(userProjectiles);
+		removeOutOfBoundsActors(enemyProjectiles);
+	}
+
+	private void removeOutOfBoundsActors(List<ActiveActorDestructible> projectiles) {
+		List<ActiveActorDestructible> outOfBoundsActors = projectiles.stream()
+				.filter(projectile -> isOutOfBounds(projectile))
+				.collect(Collectors.toList());
+		getRoot().getChildren().removeAll(outOfBoundsActors);
+		projectiles.removeAll(outOfBoundsActors);
+	}
+
+	private boolean isOutOfBounds(ActiveActorDestructible actor) {
+		double x = actor.getTranslateX();
+		double y = actor.getTranslateY();
+		return x > screenWidth || y > screenHeight;
 	}
 
 }

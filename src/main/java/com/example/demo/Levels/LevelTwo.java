@@ -12,7 +12,7 @@ public class LevelTwo extends LevelParent {
     private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background2.jpg";
     private static final String NEXT_LEVEL = "com.example.demo.Levels.LevelThree";
     private static final int TOTAL_ENEMIES = 7;
-    private static final int KILLS_TO_ADVANCE = 15;
+    private static final int KILLS_TO_ADVANCE = 20;
     private static final double ENEMY_SPAWN_PROBABILITY = .20;
     private static final int PLAYER_INITIAL_HEALTH = 5;
     private Text killCountText;
@@ -47,7 +47,7 @@ public class LevelTwo extends LevelParent {
         killCountText.setY(40);
         getRoot().getChildren().add(killCountText);
 
-        killConText = new Text("KILL TO PROCEED: 15");
+        killConText = new Text("KILL TO PROCEED: 20");
         killConText.setFill(Color.LIGHTGREEN);
         killConText.setFont(digitalfont);
         killConText.setFont(Font.font(digitalfont.getName(), 27));

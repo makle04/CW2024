@@ -4,7 +4,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import com.example.demo.Actors.ActiveActorDestructible;
-import com.example.demo.Actors.BossProjectile;
 import com.example.demo.Actors.FighterPlane;
 import com.example.demo.Actors.UserPlane;
 import com.example.demo.Views.LevelView;

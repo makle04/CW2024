@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import com.example.demo.Actors.ActiveActorDestructible;
 import com.example.demo.Actors.FighterPlane;
 import com.example.demo.Actors.UserPlane;
+import com.example.demo.Music.MusicManager;
 import com.example.demo.Views.LevelView;
 import javafx.animation.*;
 import javafx.event.EventHandler;
@@ -47,7 +48,7 @@ public abstract class LevelParent extends Observable {
 	private boolean isPaused = false;
 	private Text pauseText;
 	private static final Font digitalfont= Font.loadFont(LevelTwo.class.getResourceAsStream("/Fonts/digitalfont.ttf"), 45);
-	private Clip bgmClip;
+	private static Clip bgmClip;
 
 	public LevelParent(String backgroundImageName, double screenHeight, double screenWidth, int playerInitialHealth) {
 		this.root = new Group();
@@ -68,7 +69,7 @@ public abstract class LevelParent extends Observable {
 		initializeTimeline();
 		initializePauseText();
 		friendlyUnits.add(user);
-		playBackgroundMusic("/Audio/bgm.wav");
+		MusicManager.playBackgroundMusic("/Audio/bgm.wav");
 	}
 
 	protected abstract void initializeFriendlyUnits();
@@ -116,20 +117,6 @@ public abstract class LevelParent extends Observable {
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		KeyFrame gameLoop = new KeyFrame(Duration.millis(MILLISECOND_DELAY), e -> updateScene());
 		timeline.getKeyFrames().add(gameLoop);
-	}
-
-	private void playBackgroundMusic(String audioFilePath) {
-		try {
-			AudioInputStream audioStream = AudioSystem.getAudioInputStream(getClass().getResource(audioFilePath));
-			bgmClip = AudioSystem.getClip();
-			bgmClip.open(audioStream);
-			FloatControl gainControl = (FloatControl) bgmClip.getControl(FloatControl.Type.MASTER_GAIN);
-			gainControl.setValue(-10.0f);
-			bgmClip.loop(Clip.LOOP_CONTINUOUSLY);
-			bgmClip.start();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	private void initializeBackground() {
@@ -285,7 +272,7 @@ public abstract class LevelParent extends Observable {
 	}
 
 	protected void winGame() {
-		bgmClip.stop();
+		MusicManager.stopBackgroundMusic();
 		timeline.stop();
 		root.getChildren().clear();
 		levelView.setBackground("/com/example/demo/images/winBG.jpg");
@@ -293,11 +280,11 @@ public abstract class LevelParent extends Observable {
 	}
 
 	protected void loseGame() {
-		bgmClip.stop();
 		timeline.stop();
 		root.getChildren().clear();
 		levelView.setBackground("/com/example/demo/images/gameoverBG.jpg");
 		levelView.showGameOverImage(0.5,0.5);
+		MusicManager.stopBackgroundMusic();
 	}
 
 	protected UserPlane getUser() {

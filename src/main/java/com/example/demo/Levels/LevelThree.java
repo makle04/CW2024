@@ -18,7 +18,7 @@ public class LevelThree extends LevelParent {
 	private Text bosshealthText;
 	private Text shieldText;
 	private Text level3Text;
-	private static final Font digitalfont= Font.loadFont(LevelThree.class.getResourceAsStream("/fonts/digitalfont.ttf"), -1);
+	private static final Font digitalfont= Font.loadFont(LevelThree.class.getResourceAsStream("/Fonts/digitalfont.ttf"), -1);
 
 
 	public LevelThree(double screenHeight, double screenWidth) {

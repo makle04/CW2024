@@ -18,6 +18,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
+
 public abstract class LevelParent extends Observable {
 
 	private static final double SCREEN_HEIGHT_ADJUSTMENT = 150;
@@ -41,7 +46,8 @@ public abstract class LevelParent extends Observable {
 	private LevelView levelView;
 	private boolean isPaused = false;
 	private Text pauseText;
-	private static final Font digitalfont= Font.loadFont(LevelTwo.class.getResourceAsStream("/fonts/digitalfont.ttf"), 45);
+	private static final Font digitalfont= Font.loadFont(LevelTwo.class.getResourceAsStream("/Fonts/digitalfont.ttf"), 45);
+	private Clip bgmClip;
 
 	public LevelParent(String backgroundImageName, double screenHeight, double screenWidth, int playerInitialHealth) {
 		this.root = new Group();
@@ -62,6 +68,7 @@ public abstract class LevelParent extends Observable {
 		initializeTimeline();
 		initializePauseText();
 		friendlyUnits.add(user);
+		playBackgroundMusic("/Audio/bgm.wav");
 	}
 
 	protected abstract void initializeFriendlyUnits();
@@ -109,6 +116,20 @@ public abstract class LevelParent extends Observable {
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		KeyFrame gameLoop = new KeyFrame(Duration.millis(MILLISECOND_DELAY), e -> updateScene());
 		timeline.getKeyFrames().add(gameLoop);
+	}
+
+	private void playBackgroundMusic(String audioFilePath) {
+		try {
+			AudioInputStream audioStream = AudioSystem.getAudioInputStream(getClass().getResource(audioFilePath));
+			bgmClip = AudioSystem.getClip();
+			bgmClip.open(audioStream);
+			FloatControl gainControl = (FloatControl) bgmClip.getControl(FloatControl.Type.MASTER_GAIN);
+			gainControl.setValue(-10.0f);
+			bgmClip.loop(Clip.LOOP_CONTINUOUSLY);
+			bgmClip.start();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void initializeBackground() {
@@ -264,6 +285,7 @@ public abstract class LevelParent extends Observable {
 	}
 
 	protected void winGame() {
+		bgmClip.stop();
 		timeline.stop();
 		root.getChildren().clear();
 		levelView.setBackground("/com/example/demo/images/winBG.jpg");
@@ -271,6 +293,7 @@ public abstract class LevelParent extends Observable {
 	}
 
 	protected void loseGame() {
+		bgmClip.stop();
 		timeline.stop();
 		root.getChildren().clear();
 		levelView.setBackground("/com/example/demo/images/gameoverBG.jpg");

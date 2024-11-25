@@ -18,7 +18,7 @@ public class LevelTwo extends LevelParent {
     private Text killCountText;
     private Text level2Text;
     private Text killConText;
-    private static final Font digitalfont= Font.loadFont(LevelTwo.class.getResourceAsStream("/fonts/digitalfont.ttf"), -1);
+    private static final Font digitalfont= Font.loadFont(LevelTwo.class.getResourceAsStream("/Fonts/digitalfont.ttf"), -1);
 
     public LevelTwo(double screenHeight, double screenWidth) {
         super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);

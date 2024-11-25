@@ -7,6 +7,8 @@ import javax.sound.sampled.FloatControl;
 
 public class MusicManager {
     private static Clip bgmClip;
+    private static Clip winClip;
+    private static Clip loseClip;
 
     public static void playBackgroundMusic(String audioFilePath) {
         try {
@@ -34,5 +36,45 @@ public class MusicManager {
             bgmClip = null;
         }
     }
+
+    public static void playWinClip(String audioFilePath) {
+        try {
+            if (winClip != null && winClip.isRunning()) {
+                winClip.stop();
+                winClip.close();
+            }
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(
+                    MusicManager.class.getResource(audioFilePath)
+            );
+            winClip = AudioSystem.getClip();
+            winClip.open(audioStream);
+            FloatControl gainControl = (FloatControl) winClip.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(-5.0f);
+            winClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void playLoseClip(String audioFilePath) {
+        try {
+            if (loseClip != null && loseClip.isRunning()) {
+                loseClip.stop();
+                loseClip.close();
+            }
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(
+                    MusicManager.class.getResource(audioFilePath)
+            );
+            loseClip = AudioSystem.getClip();
+            loseClip.open(audioStream);
+            FloatControl gainControl = (FloatControl) loseClip.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(-5.0f);
+            loseClip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
 

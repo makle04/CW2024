@@ -83,10 +83,10 @@
                   - Toggle between backgound music
       
       5.1.3. Key Methods: - playBackgroundMusic(String audioFilePath)
-                                 - stopBackgroundMusic()
-                                 - playWinClip(String audioFilePath)
-                                 - playLoseClip(String audioFilePath)
-                                 - toggleBackgroundMusic(String track1, String track2)
+                          - stopBackgroundMusic()
+                          - playWinClip(String audioFilePath)
+                          - playLoseClip(String audioFilePath)
+                          - toggleBackgroundMusic(String track1, String track2)
 
    5.2 Class: LevelThree
 
@@ -101,10 +101,10 @@
                   - Handle game over conditions and level progression when the boss is defeated.
       
       5.2.3. Key Methods: - initializeFriendlyUnits()
-                                 - checkIfGameOver()
-                                 - spawnEnemyUnits()
-                                 - instantiateLevelView()
-                                 - updateScene()
+                          - checkIfGameOver()
+                          - spawnEnemyUnits()
+                          - instantiateLevelView()
+                          - updateScene()
 
    5.3 Class: LevelTwo
 
@@ -120,10 +120,10 @@
                   - Track and update the player's kills to determine if they meet the target to proceed to the next level.
       
       5.3.3. Key Methods: - initializeFriendlyUnits()
-                                 - checkIfGameOver()
-                                 - spawnEnemyUnits()
-                                 - instantiateLevelView()
-                                 - updateKillCount()
+                          - checkIfGameOver()
+                          - spawnEnemyUnits()
+                          - instantiateLevelView()
+                          - updateKillCount()
 
    5.4 Class: LevelFour (Originally LevelTwo)
 
@@ -140,25 +140,26 @@
                   - Handle game over and win conditions based on the boss's status.
       
       5.4.3. Key Methods: - initializeFriendlyUnits()
-                                 - checkIfGameOver()
-                                 - spawnEnemyUnits()
-                                 - instantiateLevelView()
-                                 - updateShieldPosition()
-                                 - updateScene()
+                          - checkIfGameOver()
+                          - spawnEnemyUnits()
+                          - instantiateLevelView()
+                          - updateShieldPosition()
+                          - updateScene()
 
    **6. Modified Java Class**
 
    6.1. LevelParent
 
       6.1.1 Stop loop of initiating boss
-                        - Added timeline.stop() to NextLevel method
-                        - In the original code given, boss was being called many times which led the app to crash and load many errors non stop
+              - Added timeline.stop() to NextLevel method
+              - In the original code given, boss was being called many times which led the app to crash and load many errors non stop
+              
       6.1.2 Updating movement of UserPlane
                         - 
 
    6.2. ShieldImage
 
-                   6.2.1 Change directory path for shield image
-                        - From .jpg to .png
-                        - In the original code given, shield image couldn't be found to proceed to (initial)LevelTwo
+      6.2.1 Change directory path for shield image
+              - From .jpg to .png
+              - In the original code given, shield image couldn't be found to proceed to (initial)LevelTwo
          

@@ -21,4 +21,8 @@ class MusicManagerTest {
     @Test
     void playLoseClip() {
     }
+
+    @Test
+    void toggleBackgroundMusic() {
+    }
 }

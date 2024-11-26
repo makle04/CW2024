@@ -22,7 +22,7 @@ public class BossPlane extends FighterPlane {
 	private static final int Y_POSITION_LOWER_BOUND = 475;
 	protected static final int MAX_FRAMES_WITH_SHIELD = 500;
 	private final List<Integer> movePattern;
-	private boolean isShielded;
+	public boolean isShielded;
 	private int consecutiveMovesInSameDirection;
 	private int indexOfCurrentMove;
 	private int framesWithShieldActivated;

@@ -147,9 +147,10 @@
                                  - updateShieldPosition()
                                  - updateScene()
 
-6. Modified Java Class
 
-   6.1. LevelParent
+   6. Modified Java Class
+
+      6.1. LevelParent
 
                   6.1.1 Stop loop of initiating boss
                         - Added timeline.stop() to NextLevel method

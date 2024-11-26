@@ -64,7 +64,7 @@ public abstract class LevelParent extends Observable {
 		initializeTimeline();
 		initializePauseText();
 		friendlyUnits.add(user);
-		MusicManager.playBackgroundMusic("/Audio/bgm.wav");
+		MusicManager.playBackgroundMusic("/Audio/oriBGM.wav");
 	}
 
 	protected abstract void initializeFriendlyUnits();
@@ -338,7 +338,7 @@ public abstract class LevelParent extends Observable {
 	}
 
 	private void toggleBackgroundMusic() {
-		MusicManager.toggleBackgroundMusic("/Audio/bgm.wav", "/Audio/bgm2.wav");
+		MusicManager.toggleBackgroundMusic("/Audio/oriBGM.wav", "/Audio/CalmBGM.wav");
 	}
 
 }

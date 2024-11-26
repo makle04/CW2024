@@ -16,6 +16,7 @@ public class LevelThree extends LevelParent {
     private BossView levelView;
     private Text bosshealthText;
     private Text level3Text;
+    private Text ConText;
     private static final Font digitalfont= Font.loadFont(LevelThree.class.getResourceAsStream("/Fonts/digitalfont.ttf"), -1);
 
 
@@ -30,12 +31,20 @@ public class LevelThree extends LevelParent {
     protected void initializeFriendlyUnits() {
         getRoot().getChildren().add(getUser());
         bosshealthText = new Text("BOSS HEALTH: " + boss.getHealth());
-        bosshealthText.setFill(Color.BLACK);
+        bosshealthText.setFill(Color.WHITE);
         bosshealthText.setFont(digitalfont);
         bosshealthText.setFont(Font.font(digitalfont.getName(), 27));
         bosshealthText.setX(getScreenWidth() - 250);
         bosshealthText.setY(40);
         getRoot().getChildren().add(bosshealthText);
+
+        ConText = new Text("KILL BOSS TO PROCEED");
+        ConText.setFill(Color.LIGHTGREEN);
+        ConText.setFont(digitalfont);
+        ConText.setFont(Font.font(digitalfont.getName(), 27));
+        ConText.setX(getScreenWidth() - 250);
+        ConText.setY(75);
+        getRoot().getChildren().add(ConText);
 
         level3Text = new Text("LEVEL 3");
         level3Text.setFill(Color.BLACK);

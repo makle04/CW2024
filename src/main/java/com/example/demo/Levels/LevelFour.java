@@ -10,14 +10,14 @@ import javafx.scene.text.Text;
 
 public class LevelFour extends LevelParent {
 
-	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background3.jpg";
+	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background4.jpg";
 	private static final int PLAYER_INITIAL_HEALTH = 5;
 	private final BossPlane boss;
 	private BossView levelView;
 	private ShieldImage shieldImage;
 	private Text bosshealthText;
 	private Text shieldText;
-	private Text level3Text;
+	private Text level4Text;
 	private static final Font digitalfont= Font.loadFont(LevelFour.class.getResourceAsStream("/Fonts/digitalfont.ttf"), -1);
 
 
@@ -31,7 +31,7 @@ public class LevelFour extends LevelParent {
 	protected void initializeFriendlyUnits() {
 		getRoot().getChildren().add(getUser());
 		bosshealthText = new Text("BOSS HEALTH: " + boss.getHealth());
-		bosshealthText.setFill(Color.BLACK);
+		bosshealthText.setFill(Color.WHITE);
 		bosshealthText.setFont(digitalfont);
 		bosshealthText.setFont(Font.font(digitalfont.getName(), 27));
 		bosshealthText.setX(getScreenWidth() - 250);
@@ -46,13 +46,13 @@ public class LevelFour extends LevelParent {
 		shieldText.setY(75);
 		getRoot().getChildren().add(shieldText);
 
-		level3Text = new Text("LEVEL 4");
-		level3Text.setFill(Color.BLACK);
-		level3Text.setFont(digitalfont);
-		level3Text.setFont(Font.font(digitalfont.getName(), 35));
-		level3Text.setX((getScreenWidth() /2) -65 );
-		level3Text.setY(50);
-		getRoot().getChildren().add(level3Text);
+		level4Text = new Text("LEVEL 4");
+		level4Text.setFill(Color.BLACK);
+		level4Text.setFont(digitalfont);
+		level4Text.setFont(Font.font(digitalfont.getName(), 35));
+		level4Text.setX((getScreenWidth() /2) -65 );
+		level4Text.setY(50);
+		getRoot().getChildren().add(level4Text);
 	}
 
 	@Override

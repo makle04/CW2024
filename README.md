@@ -1,5 +1,6 @@
    1. GitHub: https://github.com/makle04/CW2024
 
+   
    2. Compilation Instructions
 
             2.1. Ensure that computer that is going to run the program has volume loud enough for user to hear audio from the game.
@@ -12,6 +13,7 @@
 
             2.5. Once Maven has fully been loaded and Main.java is open in the editor, User can run main to start the game.
 
+   
    3. Implemented and Working Properly
    
       3.1. Allow UserPlane to move left and right
@@ -64,12 +66,14 @@
       
             3.12.1. Users can change between original and calm background music by pressing "L" key.
 
+   
    4. Implemented but not Working Properly
 
       4.1 UserPlane not kept in bounds
 
             4.1.1. UserPlane does not have a bound for the right side of the screen meaning it will travel off the screen since horizontal movement has been implemented.
 
+   
    5. New Java Classes
 
       5.1 Class: MusicManager
@@ -142,6 +146,7 @@
                                  - instantiateLevelView()
                                  - updateShieldPosition()
                                  - updateScene()
+
 6. Modified Java Class
 
    6.1. LevelParent

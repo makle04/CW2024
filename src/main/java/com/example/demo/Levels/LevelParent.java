@@ -122,6 +122,7 @@ public abstract class LevelParent extends Observable {
 			public void handle(KeyEvent e) {
 				KeyCode kc = e.getCode();
 				if (kc == KeyCode.P) togglePause();
+				if (kc == KeyCode.L) toggleBackgroundMusic();
 				if (!isPaused) {
 					if (kc == KeyCode.UP || kc == KeyCode.W) user.moveUp();
 					if (kc == KeyCode.DOWN || kc == KeyCode.S) user.moveDown();
@@ -334,6 +335,10 @@ public abstract class LevelParent extends Observable {
 		double x = actor.getTranslateX();
 		double y = actor.getTranslateY();
 		return x > screenWidth || y > screenHeight;
+	}
+
+	private void toggleBackgroundMusic() {
+		MusicManager.toggleBackgroundMusic("/Audio/bgm.wav", "/Audio/bgm2.wav");
 	}
 
 }

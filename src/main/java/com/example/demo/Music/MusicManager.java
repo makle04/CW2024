@@ -9,6 +9,7 @@ public class MusicManager {
     private static Clip bgmClip;
     private static Clip winClip;
     private static Clip loseClip;
+    private static boolean isPlayingFirstTrack = true;
 
     public static void playBackgroundMusic(String audioFilePath) {
         try {
@@ -73,6 +74,16 @@ public class MusicManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void toggleBackgroundMusic(String track1, String track2) {
+        stopBackgroundMusic();
+        if (isPlayingFirstTrack) {
+            playBackgroundMusic(track2);
+        } else {
+            playBackgroundMusic(track1);
+        }
+        isPlayingFirstTrack = !isPlayingFirstTrack;
     }
 }
 

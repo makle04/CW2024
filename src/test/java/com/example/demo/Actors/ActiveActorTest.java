@@ -4,13 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DestructibleTest {
+class ActiveActorTest {
 
     @Test
-    void takeDamage() {
+    void moveHorizontally() {
     }
 
     @Test
-    void destroy() {
+    void moveVertically() {
     }
 }

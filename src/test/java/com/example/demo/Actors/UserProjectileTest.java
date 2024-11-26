@@ -13,8 +13,4 @@ class UserProjectileTest {
     @Test
     void updateActor() {
     }
-
-    @Test
-    void getHitbox() {
-    }
 }

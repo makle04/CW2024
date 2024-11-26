@@ -3,7 +3,8 @@ package com.example.demo.Levels;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-class LevelFourTest {
+
+class LevelThreeTest {
 
     @Test
     void initializeFriendlyUnits() {
@@ -19,5 +20,9 @@ class LevelFourTest {
 
     @Test
     void instantiateLevelView() {
+    }
+
+    @Test
+    void updateScene() {
     }
 }

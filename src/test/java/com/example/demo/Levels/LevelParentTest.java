@@ -3,6 +3,7 @@ package com.example.demo.Levels;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 class LevelParentTest {
 
     @Test
@@ -50,27 +51,11 @@ class LevelParentTest {
     }
 
     @Test
-    void getUser() {
-    }
-
-    @Test
-    void getRoot() {
-    }
-
-    @Test
     void getCurrentNumberOfEnemies() {
     }
 
     @Test
     void addEnemyUnit() {
-    }
-
-    @Test
-    void getEnemyMaximumYPosition() {
-    }
-
-    @Test
-    void getScreenWidth() {
     }
 
     @Test

@@ -9,8 +9,4 @@ class ProjectileTest {
     @Test
     void takeDamage() {
     }
-
-    @Test
-    void updatePosition() {
-    }
 }

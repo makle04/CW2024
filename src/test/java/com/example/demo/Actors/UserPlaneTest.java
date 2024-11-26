@@ -7,18 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserPlaneTest {
 
     @Test
-    void updatePosition() {
-    }
-
-    @Test
-    void updateActor() {
-    }
-
-    @Test
-    void fireProjectile() {
-    }
-
-    @Test
     void moveUp() {
     }
 
@@ -44,9 +32,5 @@ class UserPlaneTest {
 
     @Test
     void incrementKillCount() {
-    }
-
-    @Test
-    void getHitbox() {
     }
 }

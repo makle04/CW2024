@@ -9,8 +9,4 @@ class HeartDisplayTest {
     @Test
     void removeHeart() {
     }
-
-    @Test
-    void getContainer() {
-    }
 }

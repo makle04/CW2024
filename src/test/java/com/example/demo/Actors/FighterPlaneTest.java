@@ -11,18 +11,6 @@ class FighterPlaneTest {
     }
 
     @Test
-    void takeDamage() {
-    }
-
-    @Test
-    void getProjectileXPosition() {
-    }
-
-    @Test
-    void getProjectileYPosition() {
-    }
-
-    @Test
     void getHealth() {
     }
 }

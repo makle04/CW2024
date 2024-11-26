@@ -11,10 +11,6 @@ class BossProjectileTest {
     }
 
     @Test
-    void updateActor() {
-    }
-
-    @Test
     void getHitbox() {
     }
 }

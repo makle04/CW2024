@@ -15,10 +15,6 @@ class EnemyPlaneTest {
     }
 
     @Test
-    void updateActor() {
-    }
-
-    @Test
     void getHitbox() {
     }
 }

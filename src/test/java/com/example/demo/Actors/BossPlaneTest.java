@@ -7,19 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BossPlaneTest {
 
     @Test
-    void updatePosition() {
-    }
-
-    @Test
-    void updateActor() {
-    }
-
-    @Test
     void fireProjectile() {
-    }
-
-    @Test
-    void takeDamage() {
     }
 
     @Test
@@ -36,10 +24,6 @@ class BossPlaneTest {
 
     @Test
     void deactivateShield() {
-    }
-
-    @Test
-    void getFramesWithShieldActivated() {
     }
 
     @Test

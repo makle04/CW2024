@@ -1,4 +1,4 @@
-   **1. GitHub: https://github.com/makle04/CW2024**
+   ~~**1. GitHub: https://github.com/makle04/CW2024**
 
    **2. Compilation Instructions**
 
@@ -162,13 +162,31 @@
 
       6.1.3. Pause functionality added
               - To provide the ability to pause the game, improving user control and enhancing the gameplay experience.
-              - New Variables: -> isPaused(boolean): Tracks whether game is paused or not
-                               -> pauseText(Text): Displays text when paused
+              - New Variables: -> isPaused(boolean): Tracks whether game is paused or not.
+                               -> pauseText(Text): Displays text when paused.
                                
               - New Methods: -> pauseGame(): Pauses the game by stopping the timeline and displaying the pause text.
                              -> resumeGame(): Resumes the game by restarting the timeline and hiding the pause text.
                              -> togglePause(): Toggles between paused and unpaused states when KeyCode.P is pressed.
-      6.1.4.                 
+      
+      6.1.4. Background Music Toggle
+              - To let players personalize their gaming experience by toggling background music.  
+              - New Method -> toggleBackgroundMusic(): Swtiches between background music tracks.
+              - Added to the key press handler, mapped to KeyCode.L
+      
+      6.1.5. Projectile boundary Handling
+              - Prevent memory leaks and reduce unnecessary computations for off screen objects.   
+              - New Methods -> handleOutOfBoundsProjectiles(): Removes bullets that leave the screen
+                            -> removeOutOfBoundsActors(): Helper method to handle the removal of such projectiles.
+      
+      6.1.6. Adding Hitbox 
+              - To ensure accurate interactions between projectiles and actors
+              - Replaced getBoundsInParent() with getHitbox() so hitbox isnt the image size but rather the actual position of the plane   
+    
+      6.1.7. Win and Loss enhancements
+              - Custom win and gameover backgrounds
+              - Custom win and gameover audio clips
+              - Provide a more immersive feedback for critical game events 
 
    6.2. ShieldImage
 
@@ -176,3 +194,124 @@
               - From .jpg to .png
               - In the original code given, shield image couldn't be found to proceed to (initial)LevelTwo
          
+   6.3. UserPlane
+
+      6.3.1. Enhanced Movement Mechanics
+              - Enhances the user experience by enabling precise control over the plane's movement in both vertical and horizontal directions, improving gameplay dynamics and responsiveness.  
+              - New Variables: -> velocityMultiplier(int)
+                               -> horizontalVelocityMultiplier(int)
+                               -> verticalVelocity(double)     
+                               -> horizontalVelocity(double)
+              - Vertical Movement: Implemented acceleration and deceleration for vertical movement, with restrictions to prevent the plane from going off-screen.
+              - Horizontal Movement: Introduced left and right movement capabilities, with horizontal velocity and acceleration/deceleration logic.  
+        
+      6.3.2. Projectile Firing Mechanism
+              - Ensures projectiles are fired from a consistent and accurate location relative to the user's plane, improving the game’s mechanics and visuals.
+              - Modified the projectile firing logic so that projectiles are fired at an offset from the user plane’s position.
+        
+      6.3.3.  Enhanced functionality for hitbox
+              - Accurate collision detection is crucial for ensuring interactions with other objects in the game and providing correct feedback for these interactions.  
+
+      6.3.4 Refactored package declaration
+              - Moved into Actors subpackage for better organization of actor-related classes within the project.  
+
+   6.4. ActiveActorDestructible
+      
+      6.4.1 Enhanced functionality for hitbox
+              - By adding getHitbox(), the destructible actor now explicitly supports integration with systems that rely on hitbox detection.
+      
+      6.4.2 Refactored package declaration
+              - Moved into Actors subpackage for better organization of actor-related classes within the project.
+
+   6.5. BossPlane
+   
+      6.5.1 Refactored package declaration
+              - Moved into Actors subpackage for better organization of actor-related classes within the project.
+
+      6.5.2. Hitbox implementations
+              - Added hitbox so that is hits the where the boss is rather than hitting the whole image height of the boss
+      
+      6.5.3 Call method updateHitbox() to method updatePostion()
+              - Ensure the hitbox is always being updated as the boss moves around.
+        
+      6.5.4. Adjusted vertical bounds for Boss
+              - Doesn't allow boss to reach the display Text at the top.
+
+      6.5.5 Changed isShielded() to public
+              - To be used in LevelThree so that shield will not be activated.
+
+   6.6. BossProjectile
+
+      6.6.1 Refactored package declaration
+              - Moved into Actors subpackage for better organization of actor-related classes within the project.
+
+      6.6.2. Hitbox implementations
+              - Added hitbox so that is more accurate according to the image when hitting UserPlane
+              - Rather than the whole image size but just the front tip of the BossProjectile.
+      
+      6.6.3. Updates hitbox when the projectile is moving
+              - method updateHitbox() is called now in method updatePosition().
+
+   6.7. EnemyPlane
+        
+      6.7.1 Hitbox implementations
+              - Added hitbox so that is hits the where the EnemyPlane is rather than hitting the whole image height of EnemyPlane.
+
+      6.7.2. Updates hitbox when the plane is moving
+              - method updateHitbox() is called now in method updatePosition().
+
+      6.7.3. Refactored package declaration
+              - Moved into Actors subpackage for better organization of actor-related classes within the project.
+
+   6.8. EnemyProjectile
+
+      6.8.1 Hitbox implementations
+              - Added hitbox so that is hits the where the EnemyPlane is rather than hitting the whole image height of EnemyPlane
+
+      6.8.2. Updates hitbox when the projectile is moving
+              - method updateHitbox() is called now in method updatePosition().  
+
+      6.8.3 Refactored package declaration
+              - Moved into Actors subpackage for better organization of actor-related classes within the project.
+
+
+   6.9.  FighterPlane
+        
+      6.9.1 Added method setHealth()
+              - Method to change boss health in LevelThree.
+
+      6.9.2. Updates hitbox when the plane is moving
+              - method updateHitbox() is called now in method updatePosition().
+
+      6.9.3 Refactored package declaration
+              - Moved into Actors subpackage for better organization of actor-related classes within the project.
+
+   6.10. UserProjectile
+      
+      6.10.1 Refactored package declaration
+              - Moved into Actors subpackage for better organization of actor-related classes within the project.
+
+      6.10.2 Hitbox implementations
+              - The addition of a hitbox is crucial for precise collision detection, ensuring that the projectile interacts correctly with other game objects
+
+      6.10.3. Updates hitbox when the projectile is moving
+              - method updateHitbox() is called now in method updatePosition().
+
+   6.11. LevelTwo
+        
+      6.11.1. Changed to a new level
+            - LevelTwo shifted to Level4
+
+      6.11.2. Condition to LevelThree
+            - Goes to LevelThree when it 20 EnemyPlanes has been destroyed    
+                 
+      6.11.3. UI Design
+            - Added Text in game to show the killcount, condition to go to the next level and the level which user is at.
+
+   6.12. LevelOne
+        
+      6.12.1. Stop timeline when gameover or next level
+            - Ensure it stops looping which creates more objects which may not be needed
+
+      6.12.2. UI Design
+            - Added Text in game to show the killcount, condition to go to the next level and the level which user is at.

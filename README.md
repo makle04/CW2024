@@ -64,11 +64,14 @@
       
       3.12.1. Users can change between original and calm background music by pressing "L" key.
    
+   3.13. Countdown Timer 
+   
    **4. Implemented but not Working Properly**
 
-   4.1 UserPlane not kept in bounds
+   4.1 Split second before countdown starts
 
-      4.1.1. UserPlane does not have a bound for the right side of the screen meaning it will travel off the screen since horizontal movement has been implemented.
+      4.1.1. Userplane able to move or shoot slightly at the start before the countdown starts. 
+      4.1.2. Logic wise, nothing should be able to move or shoot until countdown has ended.  
    
    **5. New Java Classes**
 

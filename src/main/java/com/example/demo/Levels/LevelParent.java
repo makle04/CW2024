@@ -76,10 +76,10 @@ public abstract class LevelParent extends Observable {
 	protected abstract LevelView instantiateLevelView();
 
 	public Scene initializeScene() {
+		startCountdown();
 		initializeBackground();
 		initializeFriendlyUnits();
 		levelView.showHeartDisplay();
-		startCountdown();
 		return scene;
 	}
 

@@ -47,7 +47,7 @@ public class LevelThree extends LevelParent {
         getRoot().getChildren().add(ConText);
 
         level3Text = new Text("LEVEL 3");
-        level3Text.setFill(Color.BLACK);
+        level3Text.setFill(Color.WHITE);
         level3Text.setFont(digitalfont);
         level3Text.setFont(Font.font(digitalfont.getName(), 35));
         level3Text.setX((getScreenWidth() /2) -65 );

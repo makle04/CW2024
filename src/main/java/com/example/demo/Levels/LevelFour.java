@@ -47,7 +47,7 @@ public class LevelFour extends LevelParent {
 		getRoot().getChildren().add(shieldText);
 
 		level4Text = new Text("LEVEL 4");
-		level4Text.setFill(Color.BLACK);
+		level4Text.setFill(Color.WHITE);
 		level4Text.setFont(digitalfont);
 		level4Text.setFont(Font.font(digitalfont.getName(), 35));
 		level4Text.setX((getScreenWidth() /2) -65 );

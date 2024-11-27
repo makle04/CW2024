@@ -40,7 +40,7 @@ public class LevelTwo extends LevelParent {
     protected void initializeFriendlyUnits() {
         getRoot().getChildren().add(getUser());
         killCountText = new Text("KILLCOUNT: " + user.getNumberOfKills());
-        killCountText.setFill(Color.BLACK);
+        killCountText.setFill(Color.WHITE);
         killCountText.setFont(digitalfont);
         killCountText.setFont(Font.font(digitalfont.getName(), 27));
         killCountText.setX(getScreenWidth() - 250);
@@ -56,7 +56,7 @@ public class LevelTwo extends LevelParent {
         getRoot().getChildren().add(killConText);
 
         level2Text = new Text("LEVEL 2");
-        level2Text.setFill(Color.BLACK);
+        level2Text.setFill(Color.WHITE);
         level2Text.setFont(digitalfont);
         level2Text.setFont(Font.font(digitalfont.getName(), 35));
         level2Text.setX((getScreenWidth() /2) -65 );

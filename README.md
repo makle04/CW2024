@@ -150,12 +150,25 @@
 
    6.1. LevelParent
 
-      6.1.1 Stop loop of initiating boss
+      6.1.1. Stop loop of initiating boss
+              - In the original code given, boss was being called many times which led the app to crash and load non stop java heap space 
               - Added timeline.stop() to NextLevel method
-              - In the original code given, boss was being called many times which led the app to crash and load many errors non stop
               
-      6.1.2 Updating movement of UserPlane
-                        - 
+      6.1.2. Updating movement of UserPlane
+              - To make the game more user-friendly and versatile, supporting different input preferences.
+              - Allowed diagonal movement by combining WASD and arrow keys.
+              - Added support for stopping movement when any directional key (W, A, S, D) is released.
+              - Mouse click now fires a projectile.
+
+      6.1.3. Pause functionality added
+              - To provide the ability to pause the game, improving user control and enhancing the gameplay experience.
+              - New Variables: -> isPaused(boolean): Tracks whether game is paused or not
+                               -> pauseText(Text): Displays text when paused
+                               
+              - New Methods: -> pauseGame(): Pauses the game by stopping the timeline and displaying the pause text.
+                             -> resumeGame(): Resumes the game by restarting the timeline and hiding the pause text.
+                             -> togglePause(): Toggles between paused and unpaused states when KeyCode.P is pressed.
+      6.1.4.                 
 
    6.2. ShieldImage
 

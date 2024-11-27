@@ -58,6 +58,7 @@ public class LevelThree extends LevelParent {
     @Override
     protected void checkIfGameOver() {
         if (userIsDestroyed()) {
+            timeline.stop();
             loseGame();
         } else if (boss.isDestroyed()) {
             timeline.stop();

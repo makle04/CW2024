@@ -43,7 +43,7 @@ public abstract class LevelParent extends Observable {
 	private LevelView levelView;
 	private boolean isPaused = false;
 	private Text pauseText;
-	private static final Font digitalfont= Font.loadFont(LevelTwo.class.getResourceAsStream("/Fonts/digitalfont.ttf"), 45);
+	private static final Font digitalfont= Font.loadFont(LevelTwo.class.getResourceAsStream("/Fonts/digitalfont.ttf"),-1);
 
 	public LevelParent(String backgroundImageName, double screenHeight, double screenWidth, int playerInitialHealth) {
 		this.root = new Group();
@@ -79,6 +79,7 @@ public abstract class LevelParent extends Observable {
 		initializeBackground();
 		initializeFriendlyUnits();
 		levelView.showHeartDisplay();
+		startCountdown();
 		return scene;
 	}
 
@@ -153,6 +154,7 @@ public abstract class LevelParent extends Observable {
 	private void initializePauseText(){
 		pauseText=new Text("Press P to resume...");
 		pauseText.setFont(digitalfont);
+		pauseText.setFont(Font.font(digitalfont.getName(), 45));
 		pauseText.setFill(Color.BLACK);
 		pauseText.setVisible(false);
 		pauseText.setX(450);
@@ -339,6 +341,31 @@ public abstract class LevelParent extends Observable {
 
 	private void toggleBackgroundMusic() {
 		MusicManager.toggleBackgroundMusic("/Audio/oriBGM.wav", "/Audio/CalmBGM.wav");
+	}
+
+	public void startCountdown() {
+		final int[] countdown = {3};
+		Text countdownText = new Text();
+		countdownText.setFont(digitalfont);
+		countdownText.setFont(Font.font(digitalfont.getName(), 75));
+		countdownText.setFill(Color.LIGHTYELLOW);
+		countdownText.setX(screenWidth / 2 - 30);
+		countdownText.setY(screenHeight / 2);
+		root.getChildren().add(countdownText);
+
+		Timeline countdownTimeline = new Timeline(
+				new KeyFrame(Duration.seconds(1), e -> {
+					if (countdown[0] > 0) {
+						countdownText.setText(String.valueOf(countdown[0]--));
+					} else {
+						updateScene();
+						root.getChildren().remove(countdownText);
+						startGame();
+					}
+				})
+		);
+		countdownTimeline.setCycleCount(4);
+		countdownTimeline.play();
 	}
 
 }

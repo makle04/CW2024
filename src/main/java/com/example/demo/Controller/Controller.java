@@ -22,7 +22,6 @@ public class Controller implements Observer {
 
 	public void launchGame() throws ClassNotFoundException, NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException  {
-
 			stage.show();
 			goToLevel(LEVEL_ONE_CLASS_NAME);
 	}
@@ -35,7 +34,7 @@ public class Controller implements Observer {
 			myLevel.addObserver(this);
 			Scene scene = myLevel.initializeScene();
 			stage.setScene(scene);
-			myLevel.startGame();
+			myLevel.startCountdown();
 
 	}
 

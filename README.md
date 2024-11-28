@@ -65,6 +65,8 @@
       3.12.1. Users can change between original and calm background music by pressing "L" key.
    
    3.13. Countdown Timer 
+   3.14. Added LevelThree and LevelFour 
+   3.15. Added DoubleDamage powerup
    
    **4. Implemented but not Working Properly**
 

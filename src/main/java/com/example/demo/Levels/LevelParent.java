@@ -43,6 +43,11 @@ public abstract class LevelParent extends Observable {
 	private LevelView levelView;
 	private boolean isPaused = false;
 	private Text pauseText;
+	private Text x2DamageText;
+	private Timeline blinkAnimation;
+	private boolean isDoubleDamageActive = false;
+	private boolean x2Activated = false;
+	private boolean x2Cooldown = false;
 	private static final Font digitalfont= Font.loadFont(LevelTwo.class.getResourceAsStream("/Fonts/digitalfont.ttf"),-1);
 
 	public LevelParent(String backgroundImageName, double screenHeight, double screenWidth, int playerInitialHealth) {
@@ -80,6 +85,9 @@ public abstract class LevelParent extends Observable {
 		initializeBackground();
 		initializeFriendlyUnits();
 		levelView.showHeartDisplay();
+		initializeX2DamageText();
+		startX2Cooldown();
+		x2Cooldown = true;
 		return scene;
 	}
 
@@ -122,6 +130,7 @@ public abstract class LevelParent extends Observable {
 		background.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent e) {
 				KeyCode kc = e.getCode();
+				if (kc == KeyCode.X) activateDoubleDamage();
 				if (kc == KeyCode.P) togglePause();
 				if (kc == KeyCode.L) toggleBackgroundMusic();
 				if (!isPaused) {
@@ -239,12 +248,18 @@ public abstract class LevelParent extends Observable {
 		for (ActiveActorDestructible actor : actors2) {
 			for (ActiveActorDestructible otherActor : actors1) {
 				if (actor.getHitbox().intersects(otherActor.getHitbox().getBoundsInParent())) {
-					actor.takeDamage();
+					if (actor instanceof FighterPlane && isDoubleDamageActive) {
+						actor.takeDamage();
+						actor.takeDamage();
+					} else {
+						actor.takeDamage();
+					}
 					otherActor.takeDamage();
 				}
 			}
 		}
 	}
+
 
 	private void handleEnemyPenetration() {
 		for (ActiveActorDestructible enemy : enemyUnits) {
@@ -368,4 +383,67 @@ public abstract class LevelParent extends Observable {
 		countdownTimeline.play();
 	}
 
+	private void initializeX2DamageText() {
+		x2DamageText = new Text("Double Damage!");
+		x2DamageText.setFont(digitalfont);
+		x2DamageText.setFont(Font.font(digitalfont.getName(), 35));
+		x2DamageText.setFill(Color.RED);
+		x2DamageText.setVisible(false);
+		x2DamageText.setX((getScreenWidth() /2) -115);
+		x2DamageText.setY(95);
+		x2DamageText.setStyle("-fx-effect: dropshadow(gaussian, #de3c26, 10, 0.5, 0, 0);");
+		root.getChildren().add(x2DamageText);
+		blinkAnimation = new Timeline(
+				new KeyFrame(Duration.seconds(0.5), e -> x2DamageText.setOpacity(1)),
+				new KeyFrame(Duration.seconds(1), e -> x2DamageText.setOpacity(0))
+		);
+		blinkAnimation.setCycleCount(Timeline.INDEFINITE);
+	}
+
+	private void showX2Text() {
+		if (!x2Activated && !x2Cooldown) {
+			x2DamageText.setVisible(true);
+			blinkAnimation.play();
+		}
+	}
+
+	private void hideX2Text() {
+		x2DamageText.setVisible(false);
+		blinkAnimation.stop();
+	}
+
+    private void activateDoubleDamage() {
+		if (!x2Cooldown) {
+			x2Activated = true;
+			isDoubleDamageActive = true;
+			hideX2Text();
+			x2DamageText.setVisible(true);
+			x2DamageText.setOpacity(1);
+			Timeline x2ActivationTimeline = new Timeline(
+                    new KeyFrame(Duration.seconds(5), e -> deactivateDoubleDamage())
+            );
+			x2ActivationTimeline.setCycleCount(1);
+			x2ActivationTimeline.play();
+			startX2Cooldown();
+		}
+	}
+
+	private void deactivateDoubleDamage() {
+		x2Activated = false;
+		isDoubleDamageActive = false;
+		x2DamageText.setVisible(false);
+	}
+	private void startX2Cooldown() {
+		x2Cooldown = true; // Set cooldown state
+        Timeline x2CooldownTimeline = new Timeline(
+                new KeyFrame(Duration.seconds(10), e -> endX2Cooldown())
+        );
+		x2CooldownTimeline.setCycleCount(1);
+		x2CooldownTimeline.play();
+	}
+
+	private void endX2Cooldown() {
+		x2Cooldown = false;
+		showX2Text();
+	}
 }

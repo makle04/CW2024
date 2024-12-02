@@ -376,11 +376,18 @@
    6.15. WinImage
         
         6.15.1. Position changes to image 
-            - Makes the position of the win image to be centered
+            - Makes the position of the win image to be centered.
 
-   **7. Unexpected Problems**
+   **7. Features not Implemented**
+    
+   7.1 Sound clip for UserProjectiless 
+
+        7.1.1. Idea was to play a sound clip each time user shoots a bullet
+        7.1.2. Not implemented as it made the whole game lag, the more the user shoots, the more framey the game gets. 
+
+   **8. Unexpected Problems**
    
-   7.1. Time to understand the code given
+   8.1. Time to understand the code given
         
-        7.1.1. Since the whole assignment is based on developing the software, time was pretty limited to unserstand the code. 
-        7.1.2. Might also be the case of lectures still ongoing so parts of the code we may not understand and how to improve it.
+        8.1.1. Since the whole assignment is based on developing the software, time was pretty limited to unserstand the code. 
+        8.1.2. Might also be the case of lectures still ongoing so parts of the code we may not understand and how to improve it.

@@ -27,7 +27,7 @@
 
         3.3.1. Other keys other than the arrow keys can now move the UserPlane to allow users to have more versatility when playing.
 
-   3.4. Added mouse leftclick to shoot from UserPlane
+   3.4. Added mouse leftclick to shoot from UserPlane **(Innovative Features)**
 
         3.4.1. Other ways to shoot down EnemyPlane and Boss other than space key to allow users to have more versatility when playing.
 
@@ -60,11 +60,11 @@
 
         3.11.1. Added background music and audioclip whenever user reaches gameover or win to make users be more immersive.
 
-   3.12. Change BGM
+   3.12. Change BGM **(Innovative Features)**
       
         3.12.1. Users can change between original and calm background music by pressing "L" key.
    
-   3.13. Countdown Timer 
+   3.13. Countdown Timer **(Innovative Features)**
 
         3.13.1. Countdown will start so that it will not immediate start when next level or start game
         3.13.2. Allows players to get ready for the next level
@@ -76,7 +76,7 @@
         3.14.3. Level Four is originally LevelTwo. 
         3.14.4. LevelTwo now needs to kill 20 enemy planes to advance. Total enemies also increase to 7.   
 
-   3.15. Added DoubleDamage powerup
+   3.15. Added DoubleDamage powerup **(Innovative Features)**
         
         3.15.1. Powerup for UserPlane to deal double damage when activated. 
         3.15.2. Press key "X" to activate when available
@@ -98,6 +98,10 @@
    4.3. Bullets affect EnemyPlanes before it is shown clearly on the screen
         
         4.3.1. EnemyPlanes can be killed before it is shown on the screen. 
+        
+   4.4. Sometimes after countdown reaches 1, text is not gone straight away
+   
+        4.4.1  CountdownText should be removed once it reaches one and gameplay has started
 
    **5. New Java Classes**
 
@@ -376,18 +380,11 @@
    6.15. WinImage
         
         6.15.1. Position changes to image 
-            - Makes the position of the win image to be centered.
+            - Makes the position of the win image to be centered
 
-   **7. Features not Implemented**
-    
-   7.1 Sound clip for UserProjectiless 
-
-        7.1.1. Idea was to play a sound clip each time user shoots a bullet
-        7.1.2. Not implemented as it made the whole game lag, the more the user shoots, the more framey the game gets. 
-
-   **8. Unexpected Problems**
+   **7. Unexpected Problems**
    
-   8.1. Time to understand the code given
+   7.1. Time to understand the code given
         
-        8.1.1. Since the whole assignment is based on developing the software, time was pretty limited to unserstand the code. 
-        8.1.2. Might also be the case of lectures still ongoing so parts of the code we may not understand and how to improve it.
+        7.1.1. Since the whole assignment is based on developing the software, time was pretty limited to unserstand the code. 
+        7.1.2. Might also be the case of lectures still ongoing so parts of the code we may not understand and how to improve it.

@@ -7,6 +7,8 @@ import javafx.scene.image.ImageView;
 /**
  * The LevelView class is responsible for managing the visual elements of a game level.
  * It handles the display of the player's hearts, win image, game over image, and the level's background.
+ *
+ * @see <a href="https://github.com/kooitt/CW2024/blob/master/src/main/java/com/example/demo/LevelView.java">Original LevelView</a>
  */
 public class LevelView {
 

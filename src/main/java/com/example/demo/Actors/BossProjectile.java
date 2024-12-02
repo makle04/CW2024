@@ -8,6 +8,8 @@ import javafx.scene.shape.Rectangle;
  * This class extends {@link Projectile} and includes properties and behavior specific to
  * the boss's projectiles, such as movement, hitbox management, and collision detection.
  * </p>
+ *
+ * @see <a href="https://github.com/kooitt/CW2024/blob/master/src/main/java/com/example/demo/BossProjectile.java">Original BossProjectile</a>
  */
 public class BossProjectile extends Projectile {
 

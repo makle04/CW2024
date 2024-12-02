@@ -8,6 +8,8 @@ import javafx.scene.shape.Rectangle;
  * This class extends {@link FighterPlane} and includes properties and behavior
  * specific to enemy planes, such as movement, firing projectiles, and collision detection.
  * </p>
+ *
+ * @see <a href="https://github.com/kooitt/CW2024/blob/master/src/main/java/com/example/demo/EnemyPlane.java">Original EnemyPlane</a>
  */
 public class EnemyPlane extends FighterPlane {
 

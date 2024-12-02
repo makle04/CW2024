@@ -9,6 +9,8 @@ import javafx.scene.shape.Rectangle;
  * including movement, projectile firing, and tracking the number of kills.
  * The {@code UserPlane} can move up, down, left, and right with acceleration and deceleration.
  * </p>
+ *
+ * @see <a href="https://github.com/kooitt/CW2024/blob/master/src/main/java/com/example/demo/UserPlane.java">Original UserPlane</a>
  */
 public class UserPlane extends FighterPlane {
 

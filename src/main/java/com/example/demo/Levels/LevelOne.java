@@ -15,6 +15,8 @@ import javafx.scene.text.Text;
  * This level introduces the player to the game mechanics by allowing them to destroy enemies,
  * while tracking their kills and advancing to the next level once a target number of kills is reached.
  * </p>
+ *
+ * @see <a href="https://github.com/kooitt/CW2024/blob/master/src/main/java/com/example/demo/LevelOne.java">Original LevelOne</a>
  */
 public class LevelOne extends LevelParent {
 

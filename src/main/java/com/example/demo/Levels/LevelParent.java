@@ -22,6 +22,8 @@ import javafx.util.Duration;
 /**
  * The abstract base class for all game levels. It manages the game loop, user input,
  * enemy units, projectiles, and game state.
+ *
+ * @see <a href="https://github.com/kooitt/CW2024/blob/master/src/main/java/com/example/demo/LevelParent.java">Original LevelParent</a>
  */
 public abstract class LevelParent extends Observable {
 

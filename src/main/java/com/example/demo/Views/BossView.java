@@ -7,6 +7,8 @@ import javafx.scene.Group;
  * It manages the display of elements such as the boss's shield.
  * This class extends the LevelView class, inheriting its functionality while adding additional
  * visual elements specific to the boss battle.
+ *
+ * @see <a href="https://github.com/kooitt/CW2024/blob/master/src/main/java/com/example/demo/LevelViewLevelTwo.java">Original BossView</a>
  */
 public class BossView extends LevelView {
 

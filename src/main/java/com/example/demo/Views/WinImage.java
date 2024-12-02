@@ -5,6 +5,8 @@ import javafx.scene.image.ImageView;
 
 /**
  * The WinImage class represents the "You Win" image shown when the player completes a level or wins the game.
+ *
+ * @see <a href="https://github.com/kooitt/CW2024/blob/master/src/main/java/com/example/demo/WinImage.java">Original WinImage</a>
  */
 public class WinImage extends ImageView {
 

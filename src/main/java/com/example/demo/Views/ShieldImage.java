@@ -6,6 +6,8 @@ import javafx.scene.image.ImageView;
 /**
  * The ShieldImage class represents a visual shield in the game.
  * It is used to display and hide a shield image for a character (like the boss).
+ *
+ * @see <a href="https://github.com/kooitt/CW2024/blob/master/src/main/java/com/example/demo/ShieldImage.java">Original ShieldImage</a>
  */
 public class ShieldImage extends ImageView {
 

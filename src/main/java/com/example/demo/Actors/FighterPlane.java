@@ -7,6 +7,8 @@ package com.example.demo.Actors;
  * and behaviors for all fighter planes, such as firing projectiles, managing health, and
  * handling damage.
  * </p>
+ *
+ * @see <a href="https://github.com/kooitt/CW2024/blob/master/src/main/java/com/example/demo/FighterPlane.java">Original FighterPlane</a>
  */
 public abstract class FighterPlane extends ActiveActorDestructible {
 

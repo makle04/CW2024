@@ -11,6 +11,8 @@ import javafx.scene.shape.Rectangle;
  * The boss follows a randomized movement pattern and has unique shield mechanics to protect
  * it from damage.
  * </p>
+ *
+ * @see <a href="https://github.com/kooitt/CW2024/blob/master/src/main/java/com/example/demo/Boss.java">Original BossPlane</a>
  */
 public class BossPlane extends FighterPlane {
 

@@ -10,6 +10,8 @@ import javafx.scene.text.Text;
 /**
  * The LevelTwo class represents the second level in the game, where the player must eliminate a set number of enemies
  * to proceed to the next level. It includes enemy spawn mechanics, kill count tracking, and level-specific win/lose conditions.
+ *
+ * @see <a href="https://github.com/kooitt/CW2024/blob/master/src/main/java/com/example/demo/LevelTwo.java">Original LevelTwo</a>
  */
 public class LevelTwo extends LevelParent {
 

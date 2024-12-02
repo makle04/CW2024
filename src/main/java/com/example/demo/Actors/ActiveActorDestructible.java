@@ -9,6 +9,8 @@ import javafx.scene.shape.Rectangle;
  * This abstract class includes additional functionality for tracking and managing an actor's destruction
  * state, as well as defining behavior for updating and interacting with other game elements.
  * </p>
+ *
+ * @see <a href="https://github.com/kooitt/CW2024/blob/master/src/main/java/com/example/demo/ActiveActorDestructible.java">Original ActiveActorDestructible</a>
  */
 public abstract class ActiveActorDestructible extends ActiveActor implements Destructible {
 

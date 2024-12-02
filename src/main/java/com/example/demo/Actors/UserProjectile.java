@@ -8,6 +8,8 @@ import javafx.scene.shape.Rectangle;
  * This class extends {@link Projectile} and defines the behavior of the user plane's
  * projectiles, including movement and hitbox management.
  * </p>
+ *
+ * @see <a href="https://github.com/kooitt/CW2024/blob/master/src/main/java/com/example/demo/UserProjectile.java">Original UserProjectile</a>
  */
 public class UserProjectile extends Projectile {
 

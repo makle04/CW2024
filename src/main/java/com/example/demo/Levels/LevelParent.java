@@ -384,7 +384,7 @@ public abstract class LevelParent extends Observable {
 	}
 
 	private void initializeX2DamageText() {
-		x2DamageText = new Text("Double Damage!");
+		x2DamageText = new Text("Double Damage! (PRESS X)");
 		x2DamageText.setFont(digitalfont);
 		x2DamageText.setFont(Font.font(digitalfont.getName(), 35));
 		x2DamageText.setFill(Color.RED);
@@ -414,6 +414,7 @@ public abstract class LevelParent extends Observable {
 
     private void activateDoubleDamage() {
 		if (!x2Cooldown) {
+			x2DamageText.setText("Double Damage!");
 			x2Activated = true;
 			isDoubleDamageActive = true;
 			hideX2Text();
@@ -435,7 +436,7 @@ public abstract class LevelParent extends Observable {
 	}
 
 	private void startX2Cooldown() {
-		x2Cooldown = true; // Set cooldown state
+		x2Cooldown = true;
         Timeline x2CooldownTimeline = new Timeline(
                 new KeyFrame(Duration.seconds(10), e -> endX2Cooldown())
         );

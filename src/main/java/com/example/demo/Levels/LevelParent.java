@@ -433,6 +433,7 @@ public abstract class LevelParent extends Observable {
 		isDoubleDamageActive = false;
 		x2DamageText.setVisible(false);
 	}
+
 	private void startX2Cooldown() {
 		x2Cooldown = true; // Set cooldown state
         Timeline x2CooldownTimeline = new Timeline(

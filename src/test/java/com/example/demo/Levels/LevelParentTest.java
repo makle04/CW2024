@@ -3,7 +3,6 @@ package com.example.demo.Levels;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 class LevelParentTest {
 
     @Test
@@ -19,23 +18,7 @@ class LevelParentTest {
     }
 
     @Test
-    void instantiateLevelView() {
-    }
-
-    @Test
-    void initializeScene() {
-    }
-
-    @Test
-    void startGame() {
-    }
-
-    @Test
     void goToNextLevel() {
-    }
-
-    @Test
-    void updateScene() {
     }
 
     @Test
@@ -51,14 +34,18 @@ class LevelParentTest {
     }
 
     @Test
+    void getUser() {
+    }
+
+    @Test
     void getCurrentNumberOfEnemies() {
     }
 
     @Test
-    void addEnemyUnit() {
+    void userIsDestroyed() {
     }
 
     @Test
-    void userIsDestroyed() {
+    void startCountdown() {
     }
 }

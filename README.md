@@ -388,3 +388,10 @@
         
         7.1.1. Since the whole assignment is based on developing the software, time was pretty limited to unserstand the code. 
         7.1.2. Might also be the case of lectures still ongoing so parts of the code we may not understand and how to improve it.
+   
+   **8. Features not implemented**
+   
+   8.1. Sound clip for UserProjectiles
+              
+        8.1.1. Idea was to play a sound clip each time UserPlane shoots out a bullet.
+        8.1.2. Made the game lag to the point it was not playable. Each bullet slowed down the game more. 

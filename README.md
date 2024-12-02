@@ -1,4 +1,4 @@
-   **1. GitHub: https://github.com/makle04/CW2024**
+1. GitHub: https://github.com/makle04/CW2024
 
    **2. Compilation Instructions**
 

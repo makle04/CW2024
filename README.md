@@ -76,7 +76,7 @@
         3.14.3. Level Four is originally LevelTwo. 
         3.14.4. LevelTwo now needs to kill 20 enemy planes to advance. Total enemies also increase to 7.   
 
-   3.15. Added DoubleDamage powerup
+   3.15. Added DoubleDamage powerup (Innovative Features)
         
         3.15.1. Powerup for UserPlane to deal double damage when activated. 
         3.15.2. Press key "X" to activate when available
@@ -98,6 +98,10 @@
    4.3. Bullets affect EnemyPlanes before it is shown clearly on the screen
         
         4.3.1. EnemyPlanes can be killed before it is shown on the screen. 
+        
+   4.4. Sometimes after countdown reaches 1, text is not gone straight away
+   
+        4.4.1  CountdownText should be removed once it reaches one and gameplay has started
 
    **5. New Java Classes**
 

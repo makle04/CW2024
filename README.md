@@ -86,11 +86,19 @@
    
    **4. Implemented but not Working Properly**
 
-   4.1 Split second before countdown starts
+   4.1. Split second before countdown starts
 
         4.1.1. Userplane able to move or shoot slightly at the start before the countdown starts. 
-        4.1.2. Logic wise, nothing should be able to move or shoot until countdown has ended.  
-   
+        4.1.2. Logic wise, nothing should be able to move or shoot until countdown has ended.
+
+   4.2. EnemyPlanes that go reach at the end of screen also counts as a kill
+
+        4.2.1. Enemy Plane that reach the end shouldnt be counted as a kill.
+
+   4.3. Bullets affect EnemyPlanes before it is shown clearly on the screen
+        
+        4.3.1. EnemyPlanes can be killed before it is shown on the screen. 
+
    **5. New Java Classes**
 
    5.1 Class: MusicManager

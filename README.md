@@ -101,7 +101,12 @@
         
    4.4. Sometimes after countdown reaches 1, text is not gone straight away
    
-        4.4.1  CountdownText should be removed once it reaches one and gameplay has started
+        4.4.1  CountdownText should be removed once it reaches one and gameplay has started.
+
+   4.5. Pause method not pausing when in countdown.
+        
+        4.5.1. During countdown, when pressed P, it doesnt pause and it continues gameply
+        4.5.2. When press P it should pause the whole game including countdown. 
 
    **5. New Java Classes**
 

@@ -315,7 +315,7 @@
    6.8. EnemyProjectile
 
         6.8.1. Hitbox implementations
-            - Added hitbox so that is hits the where the EnemyPlane is rather than hitting the whole image height of EnemyPlane
+            - Added hitbox so that is hits the where the UserPlane is rather than hitting the whole image height of UserPlane
 
         6.8.2. Updates hitbox when the projectile is moving
             - method updateHitbox() is called now in method updatePosition().  
